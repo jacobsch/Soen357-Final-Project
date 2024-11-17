@@ -1,3 +1,4 @@
+import PocketBase from 'pocketbase';
 import React, { useState, useEffect } from 'react';
 import {
   View,
@@ -13,6 +14,8 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Checkbox, IconButton } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
+
+const pb = new PocketBase('http://127.0.0.1:8090');
 
 export default function ShoppingListScreen({ navigation }) {
   const [goingList, setGoingList] = useState([]);
@@ -47,7 +50,7 @@ export default function ShoppingListScreen({ navigation }) {
     }
   };
 
-  const addNewItem = () => {
+  const addNewItem = async () => {
     if (!newItemName.trim()) {
       Alert.alert('Error', 'Please enter an item name.');
       return;
@@ -63,6 +66,7 @@ export default function ShoppingListScreen({ navigation }) {
     const updatedList = [...goingList, newItem];
     setNewItemName('');
     saveShoppingList([...updatedList, ...boughtList]);
+    const record = await pb.collection('shopping_list').create(newItem);
   };
 
   const handleCheckboxToggle = async (index, isGoing) => {

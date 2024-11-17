@@ -29,6 +29,10 @@ This app uses Expo and was bootstrapped with `create-expo-app`
 
 This app uses Pocketbase as a backend RESTAPI and database (with SQLite under the hood)
 
+The admin login:
+email: admin@concordia.ca
+password: concordiaadmin
+
 # Contributers
 
 Afaf Alanzarouti (40165491) <br>
