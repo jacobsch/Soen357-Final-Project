@@ -2,11 +2,21 @@
 
 Final project for Soen357
 
-This is a monorepo meaning it contains the files for both our front and back-end.
+This is a monorepo meaning it contains the files for both our front and back ends.
 
 ## To run locally
 
-1. Git clone this repo
+Dependancies:
+- node v20>= and npm already installed
+- A way to view the app:
+    - Expo Go
+        - found on the Apple App Store or Google Play Store
+    - XCode
+        - Simulator
+    - Android Studio
+        - Android Emulator
+
+1. Ensure you have all the dependancies installed and clone this repo
 
 2. cd into this repo and run `npm install`
 
@@ -24,6 +34,9 @@ This is a monorepo meaning it contains the files for both our front and back-end
 ## Frontend
 
 This app uses Expo and was bootstrapped with `create-expo-app`
+
+The app can still function without a backend, however data will not sync with a database but rather persists in the app's state.
+To bring up the front-end you can type `npm start` and then scan the QR code from your phone or run the simulator/emulator depending on the respective dependancy you chose.
 
 ## Backend
 
